@@ -14,7 +14,7 @@ def create_task():
     task_id_control+=1
     tasks.append(new_task)
     print(tasks)
-    return jsonify({"menssage:":"Nova tarefa criada com sucesso"})
+    return jsonify({"message":"Nova tarefa criada com sucesso","id":new_task.id})
 
 @app.route("/tasks", methods = ["GET"])
 def get_tasks():
@@ -41,7 +41,7 @@ def update_task(id):
         if t.id == id:
             task = t
             break
-        
+
     print(task)
     if task == None:
         return jsonify({"message":"Não foi possível encontrar a atividade"}),404
